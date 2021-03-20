@@ -39,4 +39,7 @@ ADD TO BasicNetwork/settings.py:L40:
     +MEDIA_ROOT = BASE_DIR / 'media'
 /IGNORE:
     python manage.py startapp posts
+    python manage.py startapp profiles
+IGNORE/
+
     
