@@ -2,7 +2,7 @@
 
 ## Installation
 
-The BasicNetwork project needs [Python3](url_python) to run.
+The BasicNetwork project needs [Python3](https://www.python.org) to run.
 
 Follow the next steps in order to install it:
 
@@ -99,3 +99,31 @@ python manage.py createsuperuser    # You will be prompt for username,
 python manage.py runserver
 ```
 
+It is the moment to link the project url dispatcher with the applications views. For that we are going to touch the 'urls.py' file in both applications directories, and then link the main project 'urls.py' to the ones in the applications.
+
+```sh
+touch posts/urls.py
+touch profiles/urls.py
+```
+
+UPDATE BasicNetwork/urls.py:
+```python
+from django.contrib import admin
++from django.urls import path, include
+
++from django.conf import settings
++from django.conf.urls.static import static
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+   +
+   +path('', include('posts.urls', namespace='posts')),
+   +path('profile/', include('profiles.urls', namespace='profiles')),
+]
++
++urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
++urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+The project is currently integrated with the applications. Now you have your basic-network, but working.
