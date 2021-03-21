@@ -6,11 +6,18 @@ The BasicNetwork project needs [Python3](https://www.python.org) to run.
 
 Follow the next steps in order to install it:
 
-Create a new directory and enter in it:
+Create a new directory and enter in it, or just download de this zipped code repository, expand it in wherever you planned to implement your project, and change it name by using:
 
 ```sh
+#First approach, create the directory and unzip in it:
 mkdir BasicNetworkProject
 cd BasicNetworkProject
+wget --auth-no-challenge https://github.com/Raul14/django-basic-network/archive/refs/heads/master.zip
+unzip master.zip
+
+#Second approach, unzip at directory (my choice for sure):
+wget --auth-no-challenge https://github.com/Raul14/django-basic-network/archive/refs/heads/master.zip
+unzip master.zip -d ./BasicNetworkProject
 ```
 
 Create a virtual environment for the project:
@@ -39,7 +46,7 @@ django-admin startproject BasicNetwork .
 
 Your system is capable enough to run the current project as it is already, however we want to make sure the Posts and Profiles applications are bounded to the BasicNetwork, and we have updated it basic configuration before start it up.
 
-UPDATE BasicNetwork/settings.py:
+UPDATE BasicNetwork/settings.py:L54:
 ```python
 TEMPLATES = [
     {
@@ -58,7 +65,7 @@ TEMPLATES = [
 ]
 ```
 
-ADD TO BasicNetwork/settings.py:
+ADD TO BasicNetwork/settings.py:L33:
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -73,7 +80,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-APPEND TO BasicNetwork/settings.py:
+APPEND TO BasicNetwork/settings.py:L125:
 ```python
    +STATIC_ROOT = BASE_DIR / 'static'
    +
@@ -81,7 +88,6 @@ APPEND TO BasicNetwork/settings.py:
    +STATIC_PROFILES = STATIC_ROOT / 'profiles'
    +
    +STATICFILES_DIRS = [
-   +    STATIC_ROOT,
    +    STATIC_POSTS,
    +    STATIC_PROFILES,
    +]
@@ -125,5 +131,7 @@ urlpatterns = [
 +urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 +urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
+
+IT IS REALLY IMPOPRTANT to notice that the two last url patterns additions are just a preproduction/development system addecuation, but nothing you want to have in a exposed production server. This must require a deeper Django configuration proccess over its static paths.
 
 The project is currently integrated with the applications. Now you have your basic-network, but working.
