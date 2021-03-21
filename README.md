@@ -126,4 +126,6 @@ urlpatterns = [
 +urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
+IT IS REALLY IMPOPRTANT to notice that the two last url patterns additions are just a preproduction/development system addecuation, but nothing you want to have in a exposed production server. This must require a deeper Django configuration proccess over its static paths.
+
 The project is currently integrated with the applications. Now you have your basic-network, but working.
