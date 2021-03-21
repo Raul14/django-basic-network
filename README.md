@@ -46,7 +46,7 @@ django-admin startproject BasicNetwork .
 
 Your system is capable enough to run the current project as it is already, however we want to make sure the Posts and Profiles applications are bounded to the BasicNetwork, and we have updated it basic configuration before start it up.
 
-UPDATE BasicNetwork/settings.py:
+UPDATE BasicNetwork/settings.py:L54:
 ```python
 TEMPLATES = [
     {
@@ -65,7 +65,7 @@ TEMPLATES = [
 ]
 ```
 
-ADD TO BasicNetwork/settings.py:
+ADD TO BasicNetwork/settings.py:L33:
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -80,7 +80,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-APPEND TO BasicNetwork/settings.py:
+APPEND TO BasicNetwork/settings.py:L125:
 ```python
    +STATIC_ROOT = BASE_DIR / 'static'
    +
@@ -88,7 +88,6 @@ APPEND TO BasicNetwork/settings.py:
    +STATIC_PROFILES = STATIC_ROOT / 'profiles'
    +
    +STATICFILES_DIRS = [
-   +    STATIC_ROOT,
    +    STATIC_POSTS,
    +    STATIC_PROFILES,
    +]
