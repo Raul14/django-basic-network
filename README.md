@@ -12,11 +12,11 @@ Create a new directory and enter in it, or just download de this zipped code rep
 #First approach, create the directory and unzip in it:
 mkdir BasicNetworkProject
 cd BasicNetworkProject
-wget --auth-no-challenge https://github.com/Raul14/django-basic-network/archive/refs/heads/master.zip
+curl -o master.zip https://github.com/Raul14/django-basic-network/archive/refs/heads/master.zip
 unzip master.zip
 
 #Second approach, unzip at directory (my choice for sure):
-wget --auth-no-challenge https://github.com/Raul14/django-basic-network/archive/refs/heads/master.zip
+curl -o master.zip https://github.com/Raul14/django-basic-network/archive/refs/heads/master.zip
 unzip master.zip -d ./BasicNetworkProject
 ```
 
