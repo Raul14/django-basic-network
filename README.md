@@ -75,6 +75,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
    +
+   +'crispy_forms',
+   +
+   +'access',
    +'posts',
    +'profiles',
 ]
@@ -82,18 +85,25 @@ INSTALLED_APPS = [
 
 APPEND TO BasicNetwork/settings.py:L125:
 ```python
-   +STATIC_ROOT = BASE_DIR / 'static'
+   +STATIC_BASE = BASE_DIR / 'static'
+   +STATIC_ROOT = BASE_DIR / 'static_files'
    +
+   +STATIC_ACCESS = STATIC_BASE / 'access'
    +STATIC_POSTS = STATIC_ROOT / 'posts'
    +STATIC_PROFILES = STATIC_ROOT / 'profiles'
    +
    +STATICFILES_DIRS = [
+   +    STATIC_BASE,
+   +    STATIC_ACCESS,
    +    STATIC_POSTS,
    +    STATIC_PROFILES,
    +]
    +
    +MEDIA_URL = '/media/'
    +MEDIA_ROOT = BASE_DIR / 'media'
+   +
+   +LOGIN_URL = 'access:access-login'
+   +LOGIN_REDIRECT_URL = ''
 ```
 
 This way you can utterly confident run your server by executing this following commands. Take into account that you will need to repeat some of them in the future, so you will understand them better later on. For now, just believe me:
