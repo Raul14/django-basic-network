@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="{% static 'access/login.css' %}">
+
+<!--Login--> 
+<div class="centered">
+    <h1>Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ login_form | crispy }}
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+</div>
+
+{% endblock %}
