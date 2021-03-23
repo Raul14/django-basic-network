@@ -1,1 +1,0 @@
-console.log('This is a console.log from within the base tamplate');
